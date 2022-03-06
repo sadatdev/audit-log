@@ -15,5 +15,6 @@ export interface IAuditLog {
     id: string;
     siteId: string;
     dateTime: string;
-    updatedBy: string;
+    user: string;
+    action: string;
 }

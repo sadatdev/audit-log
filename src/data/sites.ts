@@ -1,4 +1,5 @@
 import { ISite } from './../types';
+
 export const sites: ISite[] = [
     {
         id: '1',
