@@ -1,46 +1,128 @@
-# Getting Started with Create React App
+# Audit Log
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A React application to track sites' individual audit logs. This project has the following features -
 
-## Available Scripts
+1. Shows all the sites list on the homepage. (mock data)
+2. View individual site with a Modal.
+3. Edit site data.
+4. Keep audit logs of creating and updating sites.
 
-In the project directory, you can run:
+## 📷 ScreenShoot (s)
 
-### `yarn start`
+> All sites list
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+![All sites list](https://i.postimg.cc/xT2Dcs9R/Screenshot-2022-03-08-at-5-57-54-PM.png)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+> Edit site (Audit logs)
 
-### `yarn test`
+![All sites list](https://i.postimg.cc/rwshmWRj/two.png)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 👨‍💻 Installation and Setup Instructions
 
-### `yarn build`
+To run locally you will need to clone down this repository. You will need `node` and `npm` or `yarn` installed globally on your machine.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Install the dependencies
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```shell
+yarn
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+To run the project locally
 
-### `yarn eject`
+```shell
+yarn start
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+To run tests
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```shell
+yarn test
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+To run test coverage
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```shell
+yarn test:cov
+```
 
-## Learn More
+To run eslint and prettier checks
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```shell
+yarn lint
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+To fix eslint and prettier issues silently
+
+```shell
+yarn lint:fix
+```
+
+<details>
+  <summary> Commands with npm</summary>
+
+Install the dependencies
+
+```shell
+npm install
+```
+
+To run project locally
+
+```shell
+npm start
+```
+
+To run tests
+
+```shell
+npm test
+```
+
+To run test coverage
+
+```shell
+npm run test:cov
+```
+
+To run eslint and prettier checks
+
+```shell
+npm run lint
+```
+
+To fix eslint and prettier issues silently
+
+```shell
+npm run lint:fix
+```
+
+</details>
+
+## 📑 Overview
+
+-   `components/*` - All components of the application go here. Separated by folder, which contains the component itself, style modules and test.
+-   `Contexts/*` - All context providers for the app are here.
+-   `hooks/*` - Custom hooks are here.
+-   `styles/*` - The global styles are here.
+-   `utils/*.ts` - Helper functions are here.
+
+## 💻 Technical Choices
+
+-   `React`, `TypeScript`, `Context API` were the requirements.
+-   `MaterialUI` - A component library for React that is used widely. I did not write any css or sass for the design as I have used this one.
+
+## 👌 Improvements
+
+As the time on limited to develop the project, I couldn't make it with all the ideas in my mind. Things I consider to add to make it better -
+
+1. Global error handler: A global error handler can be added to catch unwanted errors. My choice would be `React ErrorBoundary Component` or [react-error-boundary](https://www.npmjs.com/package/react-error-boundary?activeTab=dependencies) package.
+
+2. Data fetching library: A data-fetching library can be used for better and clean data fetching and caching them. My choice would be [React Query](https://react-query.tanstack.com/) or [SWR](https://swr.vercel.app/).
+
+3. Styles: As I have used MaterialUI, I didn't go for any custom theming. Custom styles can be added with theming as MaterialUI also has its support.
+
+4. Git Hooks: Pre-commit hooks can be added to check esLint errors, prettier errors, tests and build errors. `lint-staged` & `husky` would be a good combination for this.
+
+## Author
+
+-   [@SadatJubayer](https://www.smjubayer.me)
