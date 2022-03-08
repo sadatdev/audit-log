@@ -18,17 +18,19 @@ interface Props {
 }
 
 export const Site = ({ site }: Props) => {
-    const { sitesDispatch } = useSites();
+    const { sitesDispatch, sitesState } = useSites();
     const { getLogsById } = useLogs();
     const [showModal, setShowModal] = React.useState(false);
 
     const logs = getLogsById(site.id);
-    const totalSites = logs.length;
+
+    const totalSites = logs?.length || 0;
 
     const openModal = () => {
         setShowModal(true);
     };
     const closeModal = () => {
+        sitesDispatch({ type: 'selectNone' });
         setShowModal(false);
     };
 
@@ -69,8 +71,10 @@ export const Site = ({ site }: Props) => {
                     }
                 />
             </ListItem>
-            <Modal open={showModal} onClose={closeModal}>
-                <AddAudit logs={logs} />
+            <Modal open={showModal}>
+                <>
+                    <AddAudit logs={logs} onCancelClick={closeModal} />
+                </>
             </Modal>
         </>
     );

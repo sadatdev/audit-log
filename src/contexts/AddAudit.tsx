@@ -14,7 +14,7 @@ interface Props {
     onCancelClick: () => void;
 }
 
-const AddAudit: React.FC<Props> = ({ logs, onCancelClick }) => {
+const AddAudit = ({ logs, onCancelClick }: Props) => {
     const {
         sitesState: { selected },
         sitesDispatch,
@@ -57,7 +57,7 @@ const AddAudit: React.FC<Props> = ({ logs, onCancelClick }) => {
                 siteId: selected.id,
                 dateTime: new Date().toISOString(),
                 user: 'Jubayer', // should be taken form DB
-                action: 'updated', // should be random
+                action: 'created', // should be random
             };
             addAuditLog(payload);
         }

@@ -11,7 +11,9 @@ type State = {
 type Action =
     | { type: 'getData' }
     | { type: 'setData'; payload: ISite[] }
-    | { type: 'setSelected'; payload: ISite };
+    | { type: 'setSelected'; payload: ISite }
+    | { type: 'updateSite'; payload: ISite }
+    | { type: 'selectNone' };
 type Dispatch = (action: Action) => void;
 type SiteProviderProps = { children: React.ReactNode };
 
@@ -34,8 +36,17 @@ function sitesReducer(state: State, action: Action): State {
         case 'setData': {
             return { ...state, isLoading: false, data: action.payload };
         }
+        case 'updateSite': {
+            const newState = state.data.map((site) =>
+                site.id === action.payload.id ? action.payload : site
+            );
+            return { ...state, isLoading: false, data: newState };
+        }
         case 'setSelected': {
             return { ...state, selected: action.payload };
+        }
+        case 'selectNone': {
+            return { ...state, selected: undefined };
         }
         default: {
             throw new Error(`Unhandled action type`);
