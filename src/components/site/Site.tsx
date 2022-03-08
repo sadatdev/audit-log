@@ -18,7 +18,7 @@ interface Props {
 }
 
 export const Site = ({ site }: Props) => {
-    const { sitesDispatch, sitesState } = useSites();
+    const { sitesDispatch } = useSites();
     const { getLogsById } = useLogs();
     const [showModal, setShowModal] = React.useState(false);
 
