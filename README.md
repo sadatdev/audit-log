@@ -1,4 +1,4 @@
-# Audit Log
+# Audit Log (Frontend Part Only)
 
 A React application to track sites' individual audit logs. This project has the following features -
 
